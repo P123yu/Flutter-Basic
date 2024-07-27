@@ -64,3 +64,67 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
+
+// ===================
+
+ return const Scaffold(
+      body:Column(
+        children: [
+          TextField(
+            
+          )
+        ],
+      )
+    );     <= for input filelds
+
+
+
+// =======================
+
+Decoration:
+
+decoration allows you to style the input field.
+InputDecoration can include properties like labelText, hintText, border, etc.
+
+decoration: InputDecoration(
+  hintText: 'Enter your name',    // labelText
+),
+
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Password Field Example')),
+        body: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Column(
+            children: <Widget>[
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Username',
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height: 20),
+              TextField(
+                decoration: InputDecoration(
+                  labelText: 'Password',
+                  border: OutlineInputBorder(),
+                ),
+                obscureText: true,  // Correctly using the obscureText parameter
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
