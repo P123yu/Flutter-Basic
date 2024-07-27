@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
         // border: OutlineInputBorder(),
 
       ),
-        obscureText: true,
+        obscureText: true,  // for password type .....
       ),
             ],
           )
@@ -45,3 +45,166 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+
+
+
+
+// ==============================================  Revised basic complete part1 
+
+import 'package:flutter/material.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      body:Padding(
+          padding: const EdgeInsets.all(16.0),
+          child:Column(
+            children: [
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue[100], // Background color
+                  borderRadius: BorderRadius.circular(8.0), // Border radius
+                ),
+                child: const TextField(
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.person, color: Colors.black87), // User icon with color
+                    labelText: 'Username', // Label text
+                    border: InputBorder.none, // No border as it's handled by BoxDecoration
+                    //contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0), // Padding inside the TextField
+                  ),
+                ),
+              ),
+
+
+
+              // child: TextField(
+              //   decoration: InputDecoration(
+              //     prefixIcon: Icon(Icons.person), // User icon
+              //     labelText: 'Username',  // Label text
+              //     //hintText: 'Enter your username',  // Hint text
+              //     border: OutlineInputBorder(),
+              //   ),
+              // ),
+
+              const SizedBox(height: 20),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.yellow[200], // Background color
+                  borderRadius: BorderRadius.circular(8.0), // Border radius
+                ),
+                child: const TextField(
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock, color: Colors.black87), // User icon with color
+                    labelText: 'Password', // Label text
+                    border: InputBorder.none, // No border as it's handled by BoxDecoration
+                    //contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0), // Padding inside the TextField
+                  ),
+                ),
+              ),
+
+
+
+      //  TextField(
+      //
+      //   decoration: InputDecoration(
+      //     prefixIcon: const Icon(Icons.lock), // Lock icon
+      //   labelText: 'Password',
+      //   border: InputBorder.none,
+      //     // fillColor: Colors.blue[50], // Background color
+      //     // filled: true,
+      //
+      //   // border: OutlineInputBorder(),
+      //
+      // ),
+      //   obscureText: true,
+      // ),
+            ],
+          )
+      )
+    );
+  }
+}
+
+
+
+// ==  adding font size, color ,font-weight of typing text and letter spacing (for input fields)  =============== PART 2 (V.V.I) ========
+
+import 'package:flutter/material.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      body:Padding(
+          padding: const EdgeInsets.all(16.0),
+          child:Column(
+            children: [
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue[400], // Background color
+                  borderRadius: BorderRadius.circular(8.0), // Border radius
+                ),
+                child: const TextField(
+                  style: TextStyle(
+                    fontSize: 18.0, // Font size of the text
+                    fontWeight: FontWeight.bold,
+                    color: Colors.yellowAccent, // Color of the text
+                    letterSpacing: 1.2, // Letter spacing
+                  ),
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.person, color: Colors.black87), // User icon with color
+                    labelText: 'Username',
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold, // Make label text bold
+                      color: Colors.black,
+                      letterSpacing: 1.2,// Color of the label text
+                    ),// Label text
+                    border: InputBorder.none, // No border as it's handled by BoxDecoration
+                    //contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0), // Padding inside the TextField
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.yellow[200], // Background color
+                  borderRadius: BorderRadius.circular(8.0), // Border radius
+                ),
+                child: const TextField(
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.lock, color: Colors.black87), // User icon with color
+                    labelText: 'Password', // Label text
+                    border: InputBorder.none, // No border as it's handled by BoxDecoration
+                    //contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0), // Padding inside the TextField
+                  ),
+                ),
+              ),
+            ],
+          )
+      )
+    );
+  }
+}
+
+
+
