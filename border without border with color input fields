@@ -272,7 +272,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     suffixIcon: IconButton(
                       icon: Icon(
                         _obscurePassword ? Icons.visibility_off : Icons.visibility,
-                        color: Colors.grey, // Icon color
+                        // color: Colors.grey, // Icon color
+                        color: _obscurePassword ? Colors.blue : Colors.red, // Change color based on visibility state
                       ),
                       onPressed: () {
                         setState(() {
