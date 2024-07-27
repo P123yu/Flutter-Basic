@@ -207,4 +207,90 @@ class _LoginScreenState extends State<LoginScreen> {
 }
 
 
+// =============================================== TOGGLE PASSWORD WITH TOGGLE VISION ===================================================
+
+import 'package:flutter/material.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _obscurePassword = true;
+
+
+  @override
+  Widget build(BuildContext context) {
+    return  Scaffold(
+      body:Padding(
+          padding: const EdgeInsets.all(16.0),
+          child:Column(
+            children: [
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.blue[400], // Background color
+                  borderRadius: BorderRadius.circular(8.0), // Border radius
+                ),
+                child: const TextField(
+                  style: TextStyle(
+                    fontSize: 18.0, // Font size of the text
+                    fontWeight: FontWeight.bold,
+                    color: Colors.yellowAccent, // Color of the text
+                    letterSpacing: 1.2, // Letter spacing
+                  ),
+                  decoration: InputDecoration(
+                    prefixIcon: Icon(Icons.person, color: Colors.black87), // User icon with color
+                    labelText: 'Username',
+                    labelStyle: TextStyle(
+                      fontWeight: FontWeight.bold, // Make label text bold
+                      color: Colors.black,
+                      letterSpacing: 1.2,// Color of the label text
+                    ),// Label text
+                    border: InputBorder.none, // No border as it's handled by BoxDecoration
+                    //contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0), // Padding inside the TextField
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 20),
+
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.yellow[200], // Background color
+                  borderRadius: BorderRadius.circular(8.0), // Border radius
+                ),
+                child:  TextField(
+                  obscureText: _obscurePassword,
+                  decoration: InputDecoration(
+                    prefixIcon: const Icon(Icons.lock, color: Colors.black87), // User icon with color
+                    labelText: 'Password', // Label text
+                    border: InputBorder.none, // No border as it's handled by BoxDecoration
+                    suffixIcon: IconButton(
+                      icon: Icon(
+                        _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                        color: Colors.grey, // Icon color
+                      ),
+                      onPressed: () {
+                        setState(() {
+                          _obscurePassword = !_obscurePassword;
+                        });
+                      },
+                    ),
+               
+                  ),
+                ),
+              ),
+            ],
+          )
+      )
+    );
+  }
+}
+
+
+
 
