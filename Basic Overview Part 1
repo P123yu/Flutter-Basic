@@ -1,0 +1,125 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:lottie/lottie.dart';
+
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
+
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  bool _obscurePassword = true;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(24.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 20.0), // Top margin for the image
+              child: Lottie.asset(
+                'assets/images/image1.json',
+                width: 510,
+                repeat: false,
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.blue[400], // Background color
+                borderRadius: BorderRadius.circular(8.0), // Border radius
+              ),
+              child: const TextField(
+                style: TextStyle(
+                  fontSize: 18.0, // Font size of the text
+                  fontWeight: FontWeight.bold,
+                  color: Colors.yellowAccent, // Color of the text
+                  letterSpacing: 1.2, // Letter spacing
+                ),
+                decoration: InputDecoration(
+                  prefixIcon: Icon(Icons.person, color: Colors.black87), // User icon with color
+                  labelText: 'Username',
+                  labelStyle: TextStyle(
+                    fontWeight: FontWeight.bold, // Make label text bold
+                    color: Colors.black,
+                    letterSpacing: 1.2, // Letter spacing for label text
+                  ),
+                  border: InputBorder.none, // No border as it's handled by BoxDecoration
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.yellow[200], // Background color
+                borderRadius: BorderRadius.circular(8.0), // Border radius
+              ),
+              child: TextField(
+                obscureText: _obscurePassword,
+                decoration: InputDecoration(
+                  prefixIcon: const Icon(Icons.lock, color: Colors.black87), // Lock icon with color
+                  labelText: 'Password',
+                  border: InputBorder.none, // No border as it's handled by BoxDecoration
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      _obscurePassword ? Icons.visibility_off : Icons.visibility,
+                      color: _obscurePassword ? Colors.blue : Colors.red, // Change color based on visibility state
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        _obscurePassword = !_obscurePassword;
+                      });
+                    },
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            Container(
+              height:60,
+              width:MediaQuery.of(context).size.width * .9,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.deepPurple,
+              ),
+              child: TextButton(
+                onPressed: () {
+                  // Add your login logic here
+                },
+                child: Text(
+                  "Login",
+                  // style: TextStyle(
+                  //   color: Colors.white,
+                  //   fontSize: 16,
+                  // ),
+                  style: GoogleFonts.poppins(
+                    color: Colors.white,
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(height: 20),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children:[
+                const Text("Don't have an account ?"),
+                TextButton(onPressed: (){},child:const Text("SIGN UP"))
+              ]
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
