@@ -1,0 +1,23 @@
+
+
+lib/
+├── main.dart                # Entry point of the application
+├── models/                  # Data models (e.g., classes for API responses, local data models)
+│   └── coffee.dart
+├── pages/                   # UI pages/screens of the application
+│   ├── home_page.dart        # Home screen or main entry point of the app
+│   ├── coffee_tab_page.dart  # The page containing the tabs (e.g., CoffeeTab)
+│   ├── image_detail_page.dart# Detailed view of an image
+│   └── other_page.dart       # Any other page/screen
+├── widgets/                 # Reusable widgets
+│   ├── coffee_card.dart      # Widget for displaying a coffee card
+│   └── custom_button.dart    # Any custom button or reusable widget
+├── services/                # Services for handling data (e.g., API services, local storage)
+│   └── api_service.dart      # Service to fetch data from API
+├── utils/                   # Utility functions and constants
+│   ├── constants.dart        # App-wide constants (e.g., colors, strings)
+│   └── helpers.dart          # Helper functions
+├── themes/                  # Application themes
+│   └── app_theme.dart        # Theme configuration for the app
+└── routes/                  # Route management for navigation
+    └── app_routes.dart       # Route definitions and navigation logic
