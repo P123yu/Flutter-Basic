@@ -1,0 +1,121 @@
+
+
+import 'package:flutter/material.dart';
+
+class CoffeeTab extends StatefulWidget {
+  const CoffeeTab({super.key});
+
+  @override
+  State<CoffeeTab> createState() => _CoffeeTabState();
+}
+
+class _CoffeeTabState extends State<CoffeeTab> {
+  // List of image asset paths for each tab
+  final List<String> hotCoffeeImages = [
+    'assets/images/americano.jpg',
+    'assets/images/Cappuccino.jpg',
+    'assets/images/espresso.jpg',
+    'assets/images/latte.jpg',
+    'assets/images/mocha.jpg',
+    'assets/images/Cappuccino.jpg',
+    'assets/images/espresso.jpg',
+    'assets/images/americano.jpg',
+  ];
+
+  final List<String> coldCoffeeImages = [
+    'assets/images/Cappuccino.jpg',
+    'assets/images/espresso.jpg',
+    'assets/images/americano.jpg',
+    'assets/images/americano.jpg',
+    'assets/images/Cappuccino.jpg',
+    'assets/images/espresso.jpg',
+    'assets/images/latte.jpg',
+    'assets/images/mocha.jpg',
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+      length: 2, // Number of tabs
+      child: Scaffold(
+        appBar: AppBar(
+          title: const Text('Coffee Tabs'),
+          bottom: const PreferredSize(
+            preferredSize: Size.fromHeight(120.0), // Adjust the height if needed
+            child: Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    'Explore Our Coffee Varieties',
+                    style: TextStyle(
+                      fontSize: 24,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+                TabBar(
+                  indicator: UnderlineTabIndicator(
+                    borderSide: BorderSide(
+                      width: 3,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  tabs: [
+                    Tab(text: "Hot Coffee"),
+                    Tab(text: "Cold Coffee"),
+                  ],
+                ),
+              ],
+            ),
+          ),
+        ),
+        body: TabBarView(
+          children: [
+            _buildGridView(hotCoffeeImages),
+            _buildGridView(coldCoffeeImages),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGridView(List<String> imagePaths) {
+    return GridView.builder(
+      padding: const EdgeInsets.all(8.0),
+      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 2, // Number of columns
+        crossAxisSpacing: 10.0, // Horizontal spacing
+        mainAxisSpacing: 10.0, // Vertical spacing
+      ),
+      itemCount: imagePaths.length,
+      // itemBuilder: (context, index) {
+      //   return Card(
+      //     elevation: 5,
+      //     child: ClipRRect(
+      //       borderRadius: BorderRadius.circular(8.0),
+      //       child: Image.asset(
+      //         imagePaths[index],
+      //         fit: BoxFit.cover,
+      //       ),
+      //     ),
+      //   );
+      // },
+        itemBuilder: (context, index) {
+          return Card(
+            elevation: 5,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(8.0),
+                image: DecorationImage(
+                  image: AssetImage(imagePaths[index]),
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+          );
+        }
+
+    );
+  }
+}
