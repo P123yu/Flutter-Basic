@@ -1,0 +1,149 @@
+
+
+// define controller
+
+final TextEditingController nameController = TextEditingController();
+
+
+// Add Controller to TextField widets
+
+child: TextField(
+  controller: nameController,
+),
+
+// print the value during onPressed function call
+
+onPressed: () {
+  print("Login clicked");
+  print("Username: ${nameController.text}");
+},
+
+
+// ====================================================================================================================================================================
+
+
+import 'package:flutter/material.dart';
+
+
+class RegisterScreen extends StatefulWidget {
+  const RegisterScreen({super.key});
+
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
+
+class _RegisterScreenState extends State<RegisterScreen> {
+  final TextEditingController nameController = TextEditingController();
+  @override
+  Widget build(BuildContext context) {
+    return   Scaffold(
+        backgroundColor: Colors.black87,
+         body:Padding(
+           padding:const EdgeInsets.all(24),
+           child:Column(
+             children:[
+               const SizedBox(height: 30),
+
+               Container(
+                 decoration: BoxDecoration(
+                     borderRadius:BorderRadius.circular(8),
+
+                 ),
+                 child:  TextField(
+                     controller: nameController,
+                     style: const TextStyle(
+                       fontSize: 18.0, // Font size of the text
+                       fontWeight: FontWeight.bold,
+                       color: Colors.white, // Color of the text
+                       letterSpacing: 1.2, // Letter spacing
+                     ),
+                   decoration:const InputDecoration(
+                     prefixIcon: Icon(Icons.person,color:Colors.white),
+                     labelText: "username",
+                     labelStyle:TextStyle(
+                       color:Colors.white
+                     ),
+                     border:OutlineInputBorder()
+                   )
+               )
+               ),
+
+               const SizedBox(height:20),
+
+               Container(
+                 decoration:BoxDecoration(
+                   borderRadius:BorderRadius.circular(8),
+                 ),
+                 child:const TextField(
+                     style: TextStyle(
+                       fontSize: 18.0, // Font size of the text
+                       fontWeight: FontWeight.bold,
+                       color: Colors.white, // Color of the text
+                       letterSpacing: 1.2, // Letter spacing
+                     ),
+                   decoration:InputDecoration(
+                     prefixIcon:Icon(Icons.email,color:Colors.white),
+                     labelText:"email",
+                       labelStyle:TextStyle(
+                           color:Colors.white
+                       ),
+                     border:OutlineInputBorder(),
+                   )
+                 )
+               ),
+
+               const SizedBox(height:20),
+
+               Container(
+                   decoration:BoxDecoration(
+                     borderRadius:BorderRadius.circular(8),
+                   ),
+                   child:const TextField(
+                     obscureText: true,
+                       style: TextStyle(
+                         fontSize: 18.0, // Font size of the text
+                         fontWeight: FontWeight.bold,
+                         color: Colors.white, // Color of the text
+                         letterSpacing: 1.2, // Letter spacing
+                       ),
+                       decoration:InputDecoration(
+                         prefixIcon:Icon(Icons.lock,color:Colors.white),
+                         labelText:"password",
+                         labelStyle:TextStyle(
+                             color:Colors.white
+                         ),
+                         border:OutlineInputBorder(),
+                         suffixIcon: Icon(Icons.visibility_off,color:Colors.white)
+                       )
+                   )
+               ),
+
+               const SizedBox(height:20),
+               // Text button
+               Container(
+                   height:60,
+                   width:MediaQuery.of(context).size.width * .9,
+                 decoration: BoxDecoration(
+                   borderRadius:BorderRadius.circular(8) ,
+                   color:Colors.deepPurple
+                 ),
+
+               child: TextButton(
+                 onPressed: (){
+                   print("login clicked");
+                   print("Username: ${nameController.text}");
+                 },
+                 child: const Text("Login",style:TextStyle(
+                   color:Colors.white
+                 ))
+               )
+    )
+]
+           )
+         )
+    );
+  }
+}
+
+
+
